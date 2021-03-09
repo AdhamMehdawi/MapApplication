@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using Map.API.Helpers.SharedResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace Map.API.Helpers.Middleware
 {
-     /// <summary>
+    /// <summary>
     /// Middleware to handle all requests and Exceptions
     /// </summary>
     public class SharedRequestMiddleware
@@ -42,13 +44,14 @@ namespace Map.API.Helpers.Middleware
                 var logMessage = GetRequestResponseData(context, sw.ElapsedMilliseconds);
                 _logger.LogInformation(new EventId(0, eventId), logMessage);
             }
-            catch (ShredValidationException  ve)
+            catch (ShredValidationException ve)
             {
                 var response = new SharedResponseResult<object>(null, System.Net.HttpStatusCode.BadRequest, ve.Notify, ve.Messages);
                 await response.ExecuteResultAsync(actionContext);
                 sw.Stop();
                 var logMessage = GetRequestResponseData(context, sw.ElapsedMilliseconds);
                 _logger.LogWarning(new EventId(0, eventId), logMessage);
+                await HandleExceptionAsync(context, response).ConfigureAwait(true);
             }
             catch (ShredBadRequestException be)
             {
@@ -57,7 +60,8 @@ namespace Map.API.Helpers.Middleware
                 sw.Stop();
                 var logMessage = GetRequestResponseData(context, sw.ElapsedMilliseconds);
                 _logger.LogWarning(new EventId(0, eventId), logMessage);
-            } 
+                await HandleExceptionAsync(context, response).ConfigureAwait(true);
+            }
             catch (ShredNotFoundException be)
             {
                 var response = new SharedResponseResult<object>(null, System.Net.HttpStatusCode.NotFound, be.Notify, be.Messages);
@@ -65,6 +69,7 @@ namespace Map.API.Helpers.Middleware
                 sw.Stop();
                 var logMessage = GetRequestResponseData(context, sw.ElapsedMilliseconds);
                 _logger.LogWarning(new EventId(0, eventId), logMessage);
+                await HandleExceptionAsync(context, response).ConfigureAwait(true);
             }
             catch (SharedAuthorizationException ae)
             {
@@ -73,6 +78,7 @@ namespace Map.API.Helpers.Middleware
                 sw.Stop();
                 var logMessage = GetRequestResponseData(context, sw.ElapsedMilliseconds);
                 _logger.LogError(new EventId(0, eventId), logMessage);
+                await HandleExceptionAsync(context, response).ConfigureAwait(true);
             }
             catch (SharedAuthenticationException ae)
             {
@@ -81,6 +87,7 @@ namespace Map.API.Helpers.Middleware
                 sw.Stop();
                 var logMessage = GetRequestResponseData(context, sw.ElapsedMilliseconds);
                 _logger.LogError(new EventId(0, eventId), logMessage);
+                await HandleExceptionAsync(context, response).ConfigureAwait(true);
             }
             catch (Exception e)
             {
@@ -90,9 +97,20 @@ namespace Map.API.Helpers.Middleware
                 sw.Stop();
                 var logMessage = GetRequestResponseData(context, sw.ElapsedMilliseconds);
                 _logger.LogCritical(new EventId(0, eventId), e, logMessage);
+                await HandleExceptionAsync(context, response).ConfigureAwait(true);
             }
         }
 
+        private static Task HandleExceptionAsync(HttpContext context, IStatusCodeActionResult ex)
+        {
+            var result = JsonConvert.SerializeObject(ex);
+            var contentType = string.IsNullOrEmpty(context.Request.ContentType)
+                ? "application/json"
+                : context.Request.ContentType;
+            context.Response.ContentType = contentType;
+            context.Response.StatusCode = ex.StatusCode ?? 500;
+            return context.Response.WriteAsync(result);
+        }
         private string GetRequestResponseData(HttpContext context, long elapsedMilliseconds)
         {
             var request = context.Request;

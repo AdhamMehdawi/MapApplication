@@ -118,9 +118,10 @@ namespace Map.API.Helpers.Services
         /// <returns></returns>
         public static IApplicationBuilder InitMiddleware(this IApplicationBuilder app, bool isDevelopment = false)
         {
+            app.UseMiddleware<SharedRequestMiddleware>();
             if (isDevelopment)
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MapApplication v1"));
             }
@@ -132,7 +133,6 @@ namespace Map.API.Helpers.Services
             {
                 endpoints.MapControllers();
             });
-            app.UseMiddleware<SharedRequestMiddleware>();
             return app;
         }
     }

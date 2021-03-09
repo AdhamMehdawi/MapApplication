@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7mvj3yjuYJvDyc0ZaexqWCPIingV4OjZ9GhkN9VmCySpdtKMmeBioYgZ8uqdauvkvQ5JB1BDAJbCKPl6gpo2GQ==",
+  "dgSpecHash": "BWA223wqG1q9CYShFrnr+6fVWL7sHUgVYSsrTFeqc0XzItHqhkW3FcV58LsFK7HP5PiOW0cyWITOXRVXZKR2nA==",
   "success": true,
   "projectFilePath": "C:\\Users\\mehda\\Desktop\\MapApplication\\MapApplication\\Map.API\\Map.API.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\mehda\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
     "C:\\Users\\mehda\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\mehda\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\mehda\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\mehda\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\mehda\\.nuget\\packages\\swashbuckle.aspnetcore\\6.1.0\\swashbuckle.aspnetcore.6.1.0.nupkg.sha512",
     "C:\\Users\\mehda\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.1.0\\swashbuckle.aspnetcore.swagger.6.1.0.nupkg.sha512",

@@ -65,7 +65,7 @@ namespace Map.API.Managers.Implementation
             var shape = await GetShapeModelViaId(id);
             return _mapper.Map<ShapeViewModel>(shape);
         }
-          
+
         /// <summary>
         /// 
         /// </summary>
@@ -116,10 +116,14 @@ namespace Map.API.Managers.Implementation
         private void CheckIfValidShape(ShapeViewModel model)
         {
             //check if the shape of circle type, then the radius is required 
-            if ((ShapeType)model.ShapeType == ShapeType.Circle && (model.Radius == null || model.Radius < 0))
+            if ((ShapeType)model.ShapeType == ShapeType.Circle)
             {
-                throw new ShredValidationException(
-                    "Invalid radius value, the posted shape of circle type  so the Radius is required value");
+                if (model.Radius == null || model.Radius < 0.1)
+                    throw new ShredValidationException(
+                        "Invalid radius value, the posted shape of circle type  so the Radius is required value");
+                if (model.ShapePoints.Count > 1)
+                    throw new ShredValidationException(
+                        "Invalid circle center, the point list contained more than one point");
             }
         }
 
@@ -128,7 +132,7 @@ namespace Map.API.Managers.Implementation
             if (id <= 0)
                 throw new ShredValidationException(
                     "The id value is incorrect please make sure to send value grater then 0");
-            var shape = await _shapeRepo.GetAsync(c=>c.Id == id, c=>c.Include(t=>t.ShapePoints));
+            var shape = await _shapeRepo.GetAsync(c => c.Id == id, c => c.Include(t => t.ShapePoints));
             if (shape == null)
                 throw new ShredNotFoundException($"Shape not found. the id  {id} incorrect value !");
             return shape;

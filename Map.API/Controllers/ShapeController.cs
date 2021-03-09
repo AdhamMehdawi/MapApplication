@@ -64,7 +64,7 @@ namespace Map.API.Controllers
         }
 
         /// <summary>
-        /// update the shape 
+        /// Update the shape 
         /// </summary>
         /// <param name="id"></param>
         /// <param name="model"></param>
@@ -79,7 +79,7 @@ namespace Map.API.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Implement delete logic 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

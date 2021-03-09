@@ -8,3 +8,13 @@ C:\Users\mehda\Desktop\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.
 C:\Users\mehda\Desktop\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.dll
 C:\Users\mehda\Desktop\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.pdb
 C:\Users\mehda\Desktop\MapApplication\Map.Core\bin\Debug\netcoreapp3.1\Map.Core.xml
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\bin\Debug\netcoreapp3.1\Map.Core.deps.json
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\bin\Debug\netcoreapp3.1\Map.Core.dll
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\bin\Debug\netcoreapp3.1\Map.Core.pdb
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\bin\Debug\netcoreapp3.1\Map.Core.xml
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.csprojAssemblyReference.cache
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.AssemblyInfoInputs.cache
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.AssemblyInfo.cs
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.csproj.CoreCompileInputs.cache
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.dll
+C:\Users\mehda\Desktop\MapApplication\MapApplication\Map.Core\obj\Debug\netcoreapp3.1\Map.Core.pdb
