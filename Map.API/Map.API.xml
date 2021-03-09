@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Map.API</name>
+    </assembly>
+    <members>
+        <member name="T:Map.API.Controllers.ShapeController">
+            <summary>
+            Shape API To create, list, delete and get shape by id 
+            </summary>
+        </member>
+        <member name="M:Map.API.Controllers.ShapeController.#ctor(Map.API.Managers.Interfaces.IShapeManager)">
+            <summary>
+            The shape Constructor 
+            </summary>
+        </member>
+        <member name="M:Map.API.Controllers.ShapeController.Get(Map.Core.ViewModels.PageParamsList)">
+            <summary>
+            Get list of shapes 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Controllers.ShapeController.GetById(System.Int32)">
+            <summary>
+            Get shape by id 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Controllers.ShapeController.Post(Map.Core.ViewModels.ShapeViewModel)">
+            <summary>
+            To Add new Shape 
+            </summary>
+            <param name="model">The shape model</param>
+            <response code="200">Shape created</response>
+            <response code="400">Shape has missing/invalid values</response>
+            <response code="500">Oops! Can't create your product right now</response>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Controllers.ShapeController.UpdateShape(System.Int32,Map.Core.ViewModels.ShapeViewModel)">
+            <summary>
+            update the shape 
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Controllers.ShapeController.DeleteShape(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Map.API.Helpers.Mapper.MapMapperProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.Mapper.MapMapperProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Map.API.Helpers.Middleware.SharedRequestMiddleware">
+            <summary>
+            Middleware to handle all requests and Exceptions
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.Middleware.SharedRequestMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="next"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:Map.API.Helpers.Middleware.SharedRequestMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Process the Request and Catch Exceptions
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Map.API.Helpers.Services.ServicesScope">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.Services.ServicesScope.InitControllers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Helpers.Services.ServicesScope.InitSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Helpers.Services.ServicesScope.InitCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Helpers.Services.ServicesScope.AddCache(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Helpers.Services.ServicesScope.InitContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Helpers.Services.ServicesScope.InitDependenciesInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Helpers.Services.ServicesScope.InitMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="isDevelopment"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Map.API.Helpers.SharedResponse.SharedResponseResult`1">
+            <summary>
+            Custom Response Result 
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.SharedResponseResult`1.#ctor(`0,System.Net.HttpStatusCode,System.Boolean,System.String[])">
+            <summary>
+            SharedResponseResult constructor
+            </summary>
+            <param name="result">Object to be returned when the request succeeded</param>
+            <param name="statusCode">200 for success, 400 for validation Errors, 500 for Server Errors, 401 UnAuthenticated, 403 for UnAuthorized</param>
+            <param name="notify">flag to indicate weather this messages should be shown as notifications or not</param>
+            <param name="messages">validation error messages or server error messages or custom success messages</param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.SharedResponseResult`1.#ctor(`0,System.String[])">
+            <summary>
+            SharedResponseResult constructor StatusCode = OK, Notify = false
+            </summary>
+            <param name="result">Object to be returned when the request succeeded</param>
+            <param name="messages">validation error messages or server error messages or custom success messages</param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.SharedResponseResult`1.#ctor(`0,System.Net.HttpStatusCode,System.String[])">
+            <summary>
+            SharedResponseResult constructor Notify = false
+            </summary>
+            <param name="result">Object to be returned when the request succeeded</param>
+            <param name="statusCode">200 for success, 400 for validation Errors, 500 for Server Errors, 401 UnAuthenticated, 403 for UnAuthorized</param>
+            <param name="messages">validation error messages or server error messages or custom success messages</param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.SharedResponseResult`1.#ctor(`0,System.Boolean,System.String[])">
+            <summary>
+            SharedResponseResult constructor StatusCode = OK
+            </summary>
+            <param name="result">Object to be returned when the request succeeded</param>
+            <param name="notify">flag to indicate weather this messages should be shown as notifications or not</param>
+            <param name="messages">validation error messages or server error messages or custom success messages</param>
+        </member>
+        <member name="T:Map.API.Helpers.SharedResponse.SharedResponse`1">
+            <summary>
+            Custom Response Class 
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.SharedResponse`1.#ctor(`0,System.Int32,System.Boolean,System.String[])">
+            <summary>
+             ResponseResult constructor
+            </summary>
+            <param name="result">Object to be returned when the request succeeded</param>
+            <param name="statusCode">200 for success, 400 for validation Errors, 500 for Server Errors, 401 UnAuthenticated, 403 for UnAuthorized</param>
+            <param name="notify">flag to indicate weather this messages should be shown as notifications or not</param>
+            <param name="messages">validation error messages or server error messages or custom success messages</param>
+        </member>
+        <member name="T:Map.API.Helpers.SharedResponse.ShredValidationException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Map.API.Helpers.SharedResponse.ShredValidationException.Messages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Map.API.Helpers.SharedResponse.ShredValidationException.Notify">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredValidationException.#ctor(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredValidationException.#ctor(System.Boolean,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="notify"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredValidationException.#ctor(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="modelState"></param>
+            <param name="notify"></param>
+        </member>
+        <member name="T:Map.API.Helpers.SharedResponse.ShredBadRequestException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Map.API.Helpers.SharedResponse.ShredBadRequestException.Messages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Map.API.Helpers.SharedResponse.ShredBadRequestException.Notify">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredBadRequestException.#ctor(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredBadRequestException.#ctor(System.Boolean,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="notify"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredBadRequestException.#ctor(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="modelState"></param>
+            <param name="notify"></param>
+        </member>
+        <member name="T:Map.API.Helpers.SharedResponse.ShredNotFoundException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Map.API.Helpers.SharedResponse.ShredNotFoundException.Messages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Map.API.Helpers.SharedResponse.ShredNotFoundException.Notify">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredNotFoundException.#ctor(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredNotFoundException.#ctor(System.Boolean,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="notify"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Map.API.Helpers.SharedResponse.ShredNotFoundException.#ctor(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="modelState"></param>
+            <param name="notify"></param>
+        </member>
+        <member name="T:Map.API.Managers.Implementation.ShapeManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.API.Managers.Implementation.ShapeManager.#ctor(Map.Core.Interfaces.IShapeRepositories.IShapeRepo,AutoMapper.IMapper,Map.Core.Interfaces.IUnitOfWork,Map.Core.Interfaces.IRepo{Map.Core.Entities.Point})">
+            <summary>
+            
+            </summary>
+            <param name="shapeRepo"></param>
+            <param name="mapper"></param>
+            <param name="unitOfWork"></param>
+            <param name="pointRepo"></param>
+        </member>
+        <member name="M:Map.API.Managers.Implementation.ShapeManager.AddShape(Map.Core.ViewModels.ShapeViewModel)">
+            <summary>
+            Implement the login of add new shape 
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Managers.Implementation.ShapeManager.GetShapeById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Map.API.Managers.Implementation.ShapeManager.GetShapeList(Map.Core.ViewModels.PageParamsList)">
+            <summary>
+            
+            </summary>
+            <param name="pageParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Managers.Implementation.ShapeManager.UpdateShape(System.Int32,Map.Core.ViewModels.ShapeViewModel)">
+            <summary>
+            implement the update logic 
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Managers.Implementation.ShapeManager.DeleteShape(System.Int32)">
+            <summary>
+            implement delete login 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Map.API.Managers.Interfaces.IShapeManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.API.Managers.Interfaces.IShapeManager.AddShape(Map.Core.ViewModels.ShapeViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Managers.Interfaces.IShapeManager.GetShapeById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Managers.Interfaces.IShapeManager.GetShapeList(Map.Core.ViewModels.PageParamsList)">
+            <summary>
+            
+            </summary>
+            <param name="pageParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Managers.Interfaces.IShapeManager.UpdateShape(System.Int32,Map.Core.ViewModels.ShapeViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Map.API.Managers.Interfaces.IShapeManager.DeleteShape(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

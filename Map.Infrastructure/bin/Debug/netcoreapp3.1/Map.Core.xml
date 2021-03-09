@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Map.Core</name>
+    </assembly>
+    <members>
+        <member name="P:Map.Core.Entities.Point.Lat">
+            <summary>
+            The latitude 
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Point.Lng">
+            <summary>
+            The longitude
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Point.ShapeId">
+            <summary>
+            The foreigner to shape 
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Point.Shape">
+            <summary>
+            The navigation property  to shape entity 
+            </summary>
+        </member>
+        <member name="T:Map.Core.Entities.Shape">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.Core.Entities.Shape.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.Title">
+            <summary>
+            The Shape Title
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.FillColorCode">
+            <summary>
+            The color will fill into shape
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.FillOpacity">
+            <summary>
+            The filled color opacity
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.StrokeWeight">
+            <summary>
+            The shape  stroke weight and the value must
+            be between 0.0 and 1.0 and the default 
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.StrokeColorCode">
+            <summary>
+            The shape stroke color 
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.Geodesic">
+            <summary>
+            The Geodesic, the distance between tow point is strait or follow the geometry concepts   
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.ZoomRatio">
+            <summary>
+            The zoom level value  
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.Radius">
+            <summary>
+            if the shape is circle, then the value of radius will be mandatory  
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.ShapeType">
+            <summary>
+            The shape type it is enum value 
+            </summary>
+        </member>
+        <member name="P:Map.Core.Entities.Shape.ShapePoints">
+            <summary>
+            The shape points list represent the shape path 
+            </summary>
+        </member>
+        <member name="T:Map.Core.Enum.ShapeType">
+            <summary>
+            The shape type it is enum value
+            The value of shape type my be one of the following:
+            Line =1,
+            Circle =2,
+            Polygon =3,
+            Triangle =4,
+            Square =5
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="F:Map.Core.Enum.ShapeType.Line">
+            <summary>
+            the line shape
+            </summary>
+        </member>
+        <member name="F:Map.Core.Enum.ShapeType.Circle">
+            <summary>
+            the circle shape 
+            </summary>
+        </member>
+        <member name="F:Map.Core.Enum.ShapeType.Polygon">
+            <summary>
+            the polygon shape
+            </summary>
+        </member>
+        <member name="F:Map.Core.Enum.ShapeType.Triangle">
+            <summary>
+            the triangle shape
+            </summary>
+        </member>
+        <member name="F:Map.Core.Enum.ShapeType.Square">
+            <summary>
+            the square shape
+            </summary>
+        </member>
+        <member name="T:Map.Core.Interfaces.IShapeRepositories.IShapeRepo">
+            <summary>
+            The shape repo for all operation into database
+            </summary>
+        </member>
+        <member name="T:Map.Core.Interfaces.IUnitOfWork">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.Core.Interfaces.IUnitOfWork.CompleteAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Map.Core.Interfaces.IUnitOfWork.BeginTransaction">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Map.Core.Interfaces.IUnitOfWork.CommitTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Map.Core.Interfaces.IUnitOfWork.RollBackTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Map.Core.ViewModels.PageParamsList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.PageParamsList.CurrentPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.PageParamsList.PageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Map.Core.ViewModels.PointViewModel">
+            <summary>
+            The point object Model
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.PointViewModel.Lat">
+            <summary>
+            The latitude value 
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.PointViewModel.Lng">
+            <summary>
+            The longitude value
+            </summary>
+        </member>
+        <member name="T:Map.Core.ViewModels.ShapeViewModel">
+            <summary>
+            The Shape Object Model
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.Id">
+            <summary>
+            The Shape Id
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.Title">
+            <summary>
+            The Shape Title
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.FillColorCode">
+            <summary>
+            The color will fill into shape
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.FillOpacity">
+            <summary>
+            The filled color opacity
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.StrokeWeight">
+            <summary>
+            The shape  stroke weight and the value must
+            be between 0.0 and 1.0 and the default 
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.StrokeColorCode">
+            <summary>
+            The shape stroke color 
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.Geodesic">
+            <summary>
+            The Geodesic, the distance between tow point is strait or follow the geometry concepts   
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.ZoomRatio">
+            <summary>
+            The zoom level value  
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.Radius">
+            <summary>
+            if the shape is circle, then the value of radius will be mandatory  
+            </summary>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.ShapeType">
+            <summary>
+            The shape type it is enum value
+            The value of shape type my be one of the following:
+            Line =1,
+            Circle =2,
+            Polygon =3,
+            Triangle =4,
+            Square =5
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:Map.Core.ViewModels.ShapeViewModel.ShapePoints">
+            <summary>
+            The shape points list represent the shape path 
+            </summary>
+        </member>
+    </members>
+</doc>
